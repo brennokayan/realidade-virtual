@@ -18,30 +18,32 @@ Primeiro, clone o repositório para sua máquina local usando o Git:
 ```bash
 git clone https://github.com/seu-usuario/seu-repositorio.git
 cd seu-repositorio
+````
 Configuração e Execução
 Este projeto possui dois diretórios principais: backend e frontend. Vamos configurar e executar ambos.
 
 1. Backend
 Navegue até o diretório do backend e instale as dependências:
 
-
+```bash
 cd backend
 npm install
+````
 Para iniciar o servidor backend:
-
+```bash
 npm start
+````
 2. Frontend
 Em outra janela do terminal, navegue até o diretório do frontend e instale as dependências:
-
-
+```bash
 cd ../frontend
 npm install
+````
 Para iniciar o servidor frontend:
 
-bash
-Copiar código
+```bash
 npm run dev
-
+````
 #Executando ambos os servidores com um script
 Você também pode usar um script .bat para instalar as dependências e iniciar ambos os servidores automaticamente.
 
