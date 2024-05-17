@@ -1,7 +1,5 @@
 # realidade-virtual
 
-# Meu Projeto
-
 Este projeto contém um backend e um frontend que precisam ser configurados e executados.
 
 ## Pré-requisitos
