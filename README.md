@@ -52,7 +52,7 @@ Certifique-se de que o arquivo paths.txt contém os caminhos corretos para os di
 C:\caminho\para\seu\projeto\backend
 C:\caminho\para\seu\projeto\frontend
 Execute o script start_projects.bat para instalar as dependências e iniciar ambos os servidores:
-start_projects.bat
+Inicializador.bat
 
 Estrutura do Projeto:
 ````plain-text
@@ -71,6 +71,6 @@ seu-projeto/
 │   └── ...
 │
 ├── paths.txt
-├── start_projects.bat
+├── Inicializador.bat
 └── README.md
 
