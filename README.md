@@ -31,7 +31,7 @@ npm install
 ````
 Para iniciar o servidor backend:
 ```bash
-npm start
+npm run dev
 ````
 2. Frontend
 Em outra janela do terminal, navegue até o diretório do frontend e instale as dependências:
