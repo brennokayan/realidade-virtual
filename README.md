@@ -54,7 +54,8 @@ C:\caminho\para\seu\projeto\frontend
 Execute o script start_projects.bat para instalar as dependências e iniciar ambos os servidores:
 start_projects.bat
 
-Estrutura do Projeto
+Estrutura do Projeto:
+````plain-text
 seu-projeto/
 │
 ├── backend/
