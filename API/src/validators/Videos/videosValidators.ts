@@ -16,11 +16,8 @@ export class VideosValidators{
         userId: z.string().cuid()
     })
     static VideoPutValidator = z.object({
-        id: z.string().cuid(),
         name: z.string(),
-        url: z.string(),
         time: z.string(),
-        userId: z.string().cuid()
     })
     
 }

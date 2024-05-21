@@ -28,13 +28,18 @@ export const getUser = router.get("/user/:id", async (req, res) => {
         _count: true,
         Video: {
           select: {
+            id: true,
             name: true,
             url: true,
             time: true,
           },
+          orderBy: {
+            updatedAt: 'desc'
+          }
         },
         Light: {
           select: {
+            id: true,
             name: true,
             color: true,
             ilumminence: true,
@@ -43,6 +48,7 @@ export const getUser = router.get("/user/:id", async (req, res) => {
         },
         Wall: {
           select: {
+            id: true,
             name: true,
             color: true,
           },
@@ -120,7 +126,11 @@ export const postAuthLogin = router.post("/auth", async (req, rep) =>{
             name: true,
             url: true,
             time: true,
+            id: true,
           },
+          orderBy: {
+            updatedAt: 'desc'
+          }
         },
         Light: {
           select: {
@@ -128,12 +138,14 @@ export const postAuthLogin = router.post("/auth", async (req, rep) =>{
             color: true,
             ilumminence: true,
             range: true,
+            id: true,
           },
         },
         Wall: {
           select: {
             name: true,
             color: true,
+            id: true,
           },
         },
       }

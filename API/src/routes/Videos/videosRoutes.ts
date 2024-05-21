@@ -72,13 +72,13 @@ export const videoGet = router.get("/video/:id", async (req, res) => {
 
 export const videoPost = router.post("/video", async (req, res) => {
   try {
-    const data = VideosValidators.VideoPostValidator.parse(req.body);
+    const {name, url, time, userId} = VideosValidators.VideoPostValidator.parse(req.body);
     const video = await prisma.video.create({
       data: {
-        name: data.name,
-        url: data.url,
-        time: data.time,
-        user: { connect: { id: data.userId } },
+        name: name,
+        url: url,
+        time: time,
+        user: { connect: { id: userId } },
       },
     });
     res.status(200).send({ data: video });
@@ -101,12 +101,13 @@ export const videoDelete = router.delete("/video/:id", async (req, res) => {
 
 export const videoPut = router.put("/video/:id", async (req, res) => {
   try {
-    const { id, name, url, time } = VideosValidators.VideoPutValidator.parse(
+    const {id} = VideosValidators.VideoValidatorId.parse(req.params);
+    const { name,  time } = VideosValidators.VideoPutValidator.parse(
       req.body
     );
     const video = await prisma.video.update({
       where: { id },
-      data: { name, url, time },
+      data: { name, time },
     });
     res.status(200).send({ data: video });
   } catch (e) {
