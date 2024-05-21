@@ -72,6 +72,10 @@ export function UserPage() {
               title="Meu Vídeo"
             ></iframe>
           </li> */}
+          <video width="600" controls>
+            <source src={"D:/backup/Faculdade/Realidade Virtual e aumentada/realidade-virtual/API/uploads/8df8a1e1ce1def31220c8a90834d0648-ð±SUKUNA ABRE SUA FORNALHA DIVÃ­NA E AGORA TUDO ESTÃ... JUJUTSU KAISEN 258 OFICIAL.mp4"} type="video/mp4" />
+            Seu navegador não suporta o elemento de vídeo.
+          </video>
         </Box>
       ) : (
         <Typography>Carregando ...</Typography>
