@@ -4,10 +4,16 @@ import { LoginService } from "../../services/loginService";
 import { login } from "../../utils/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { SnackBarInfo } from "../../components/snackBarInfo/snackBarInfo";
 
 // Do something differently for this user
 
 export function LoginPage() {
+  const [open, setOpen] = useState({
+    open: false,
+    type: "success" as "success" | "error" | "info",
+    message: "",
+  });
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
@@ -17,7 +23,13 @@ export function LoginPage() {
     // "teste@teste.com", "teste"
     LoginService(loginData).then((data) => {
       login(data.token);
-    });
+    }).catch(() => {
+      setOpen({
+        open: true,
+        type: "error",
+        message: "Usuário ou senha inválidos!",
+      });
+    })
   };
   const navigate = useNavigate();
   return (
@@ -128,6 +140,15 @@ export function LoginPage() {
           <img src={teste} alt="imagem login" height={"90%"} />
         </Box>
       </Box>
+      <SnackBarInfo
+        message={open.message}
+        type={open.type}
+        toOpen={open.open}
+        anchorOrigin={{horizontal: "center", vertical: "top"}}
+        handleClose={() => {
+          setOpen({ ...open, open: false });
+        }}
+      />
     </>
   );
 }

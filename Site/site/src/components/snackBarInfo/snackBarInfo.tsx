@@ -9,6 +9,10 @@ interface Props {
   type: "success" | "error" | "info";
   toOpen: boolean;
   handleClose: () => void;
+  anchorOrigin?: {
+    vertical: "top" | "bottom";
+    horizontal: "left" | "center" | "right";
+  };
 }
 
 export function SnackBarInfo(props: Props) {
@@ -34,7 +38,11 @@ export function SnackBarInfo(props: Props) {
     <div>
       <Snackbar
         className={snackBarClass}
-        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        anchorOrigin={
+          props.anchorOrigin
+            ? props.anchorOrigin
+            : { vertical: "top", horizontal: "left" }
+        }
         open={props.toOpen}
         autoHideDuration={4000}
         onClose={props.handleClose}

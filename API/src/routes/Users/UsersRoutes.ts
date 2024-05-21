@@ -22,6 +22,7 @@ export const getUser = router.get("/user/:id", async (req, res) => {
       where: { id },
       select: {
         id: true,
+        role: true,
         name: true,
         email: true,
         _count: true,
@@ -46,7 +47,7 @@ export const getUser = router.get("/user/:id", async (req, res) => {
             color: true,
           },
         },
-      },
+      }
     });
     res.status(200).json( user );
   } catch (e) {

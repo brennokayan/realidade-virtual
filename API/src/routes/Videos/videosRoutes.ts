@@ -3,36 +3,13 @@ import { VideosValidators } from "../../validators/Videos/videosValidators";
 import { prisma } from "../../prisma-client/prisma-client";
 import { videoUploaderMiddleware } from "../../middlewares/uploadVideoMiddlware";
 import { updateVideoMiddlware } from "../../middlewares/updateViideoMiddlware";
+import multer from "multer";
+import {MulterConfig}  from "../../config/multer"
 const router = express.Router();
-
-// export const videoPostUpdate = router.post(
-//   "/video/update",
-//   videoUploaderMiddleware.single("video"),
-//   async (req, res) => {
-//     try {
-//       const { time, name, userId } =
-//         VideosValidators.VideoPostFileValidator.parse(req.body);
-//       const videoUrl = req.file?.path;
-//       const videos = await prisma.video.create({
-//         data: {
-//           time,
-//           name,
-//           user: {
-//             connect: { id: userId },
-//           },
-//           url: videoUrl?? "não foi possível captar o endereço do vídeo",
-//         },
-//       });
-//       res.status(200).send({ data: videos });
-//     } catch (e) {
-//       res.status(500).send({ error: e });
-//     }
-//   }
-// );
 
 export const videoPostUpdate = router.post(
   "/video/update",
-  updateVideoMiddlware.single("video"),
+  multer(MulterConfig).single("video"),
   async (req, res) => {
     try {
       const { time, name, userId } =
@@ -54,6 +31,31 @@ export const videoPostUpdate = router.post(
     }
   }
 );
+
+// export const videoPostUpdate = router.post(
+//   "/video/update",
+//   updateVideoMiddlware.single("video"),
+//   async (req, res) => {
+//     try {
+//       const { time, name, userId } =
+//         VideosValidators.VideoPostFileValidator.parse(req.body);
+//       const videoUrl = req.file?.path;
+//       const videos = await prisma.video.create({
+//         data: {
+//           time,
+//           name,
+//           user: {
+//             connect: { id: userId },
+//           },
+//           url: videoUrl ?? "não foi possível captar o endereço do vídeo",
+//         },
+//       });
+//       res.status(200).send({ data: videos });
+//     } catch (e) {
+//       res.status(500).send({ error: e });
+//     }
+//   }
+// );
 
 export const videoGet = router.get("/video/:id", async (req, res) => {
   try {

@@ -12,7 +12,6 @@ export function UserPage() {
       setData(response.data);
     });
   }, []);
-  console.log(data);
   return (
     <>
       {/* <Navbar title="Dashboard" /> */}
@@ -22,6 +21,7 @@ export function UserPage() {
           <ul>
             <li>User: {data?.name}</li>
             <li>Email: {data?.email}</li>
+            <li>UserId: {data?.id}</li>
             <li>Parede's: 
               <ul>
                 {data.Wall.map((wall, index) => (
